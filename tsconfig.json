@@ -1,0 +1,31 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".", // Adicione esta linha: Define a base para resolução de módulos
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    // Se seus arquivos JS estão sendo compilados ou precisam de verificação de tipos,
+    // a inclusão de "**/*.js" e "**/*.jsx" é mais comum para abranger todos.
+    // Ou remova estas linhas se a verificação de tipos for apenas para TS/TSX.
+    "app/_layout.js",
+    "app/(tabs)/index.js",
+    "app/(tabs)/explore.js",
+    "app/(tabs)/_layout.js",
+    "app/(tabs)/artistas.js",
+    // Note que "app/obras.js" provavelmente deveria ser "app/tabs/obras/*.js"
+    // ou "app/tabs/obras/_layout.js" se for um diretório de rota.
+    // Dada sua estrutura "app/tabs/obras/caravaggio.js",
+    // a inclusão de `app/tabs/obras/**/*.js` seria mais apropriada se precisar.
+    "app/tabs/obras/**/*.js" // Inclui todos os JS dentro de app/tabs/obras
+  ]
+}
